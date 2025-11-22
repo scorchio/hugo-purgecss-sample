@@ -1,0 +1,9 @@
+{{- define "main" -}}
+<div class="relative px-6 py-4 md:px-10">
+    <div class="typo">{{- .Content -}}</div>
+    <div>
+        <img src="https://placehold.co/300x200" class="inline-block md:mr-6" />
+        <img src="https://placehold.co/200x200" class="inline-block" />
+    </div>
+</div>
+{{- partial "comments/include" . }} {{- end -}}
