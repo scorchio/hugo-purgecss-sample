@@ -1,0 +1,271 @@
+baseURL: https://example.com/
+languageCode: en
+defaultContentLanguage: en
+title: 'Test site'
+enableRobotsTXT: true
+enableEmoji: true
+theme: hugo-theme-luna
+timeout: 60000
+timeZone: Europe/Budapest
+
+# use git commit log to generate lastmod record
+enableGitInfo: true
+
+hasCJKLanguage: false
+
+# pagination size
+pagination:
+  pagerSize: 10
+
+# google analytics tracking code
+# googleAnalytics: 
+
+# default: author.name ↓
+copyright: 'John Smith'
+
+permalinks:
+  # Format of posts links
+  posts: /:year/:month/:day/:slug/ # 2019/01/01/hello-world/
+  pages: /:slug/ # /about/
+
+frontmatter:
+  lastmod:
+    - :git
+    - lastmod
+    - :fileModTime
+    - date
+    - publishDate
+    - :default
+
+taxonomies:
+  tag: 'tags'
+  category: 'categories'
+
+summaryLength: 70
+canonifyURLs: false
+relativeURLs: false
+
+# see https://gohugo.io/content-management/image-processing/#imaging-configuration
+imaging:
+  resampleFilter: CatmullRom
+  quality: 95
+  anchor: smart
+
+caches:
+  getresource:
+    dir: :resourceDir/_gen
+    maxAge: 24h
+
+# See https://gohugo.io/about/hugo-and-gdpr/
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+  youtube:
+    privacyEnhanced: true
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
+# all supported pages
+$manuMain:
+  - &mainMenuHome
+    name: Home
+    weight: 10
+    identifier: home
+    params:
+      icon: eva eva-home
+    url: /
+
+markup:
+  highlight:
+    style: dracula
+    guessSyntax: true
+    tabWidth: 4
+    lineNumbersInTable: true
+    lineNos: true
+    codeFences: true
+  goldmark:
+    renderer:
+      unsafe: true # enable html in markdown
+
+# .Site.Params
+params:
+  # CDN URL
+  publicCDN: ''
+
+  # Display title and description at the top of the page, use .Site.Title and .Site.Params.Description
+  topTitle: true
+  author:
+    name: John Smith
+
+  description: 'A Hugo test site'
+
+  # Create a Announcement section at the top of the home page
+  announcement:
+    enabled: false
+    file: 'README.md' # assets/README.md
+
+  # Comment system
+  comments:
+    enabled: false
+
+  # RSS configuration
+  rss:
+    # If false, you must set Output Formats, see: https://gohugo.io/templates/output-formats#customizing-output-formats
+    enabled: true
+    # Output full text
+    fullText: true
+
+  # If false, you must set Output Formats, see: https://gohugo.io/templates/output-formats#customizing-output-formats
+  sitemap: true
+
+  # Site theme colors
+  themeColor: '#dd6065'
+
+  # Set website to black and white, usually for mourning events
+  blackAndWhite: false
+
+  # Output a nice console log
+  console:
+    enabled: false
+
+  # Title counter
+  headlineCounter: false
+
+  # Fixed navigation bar
+  fixedNav: false
+
+  # Site font
+  # font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  font: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif'
+
+  # ts/custom.ts
+  customScript:
+    enabled: false
+    pjax: true # Auto-reload in pjax mode
+
+  # Show site runtime
+  runTime:
+    enabled: false
+    # Site creation time
+    creatTime: 2025-01-28T19:50:00+01:00
+
+  # Site creation year
+  since: '2025'
+
+  # show warning when outdated info detected
+  outdatedInfoWarning:
+    enabled: false
+    # A timeout reminder will be displayed if the last modification time exceeds that number of days
+    day: 90
+
+  # Automatic switching of night mode (using device settings)
+  autoDarkMode: false
+
+  share:
+    twitter: false
+    facebook: true
+    weibo: false
+    copyLinkText: true
+    qrcode: false
+
+  qrcodeAPI: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='
+
+  # license
+  license:
+    enabled: false
+
+  # Display i18n toggle button
+  i18nlist: false
+
+  # github page
+  #github:
+  #  id: "torvalds" # github user id
+  #  minStars: 5 # 最小 star 项目 / min stars
+
+  # tweet page
+  #twitter:
+  #  rsshub: "https://rsshub.rssforever.com" # rsshub url, see https://github.com/DIYgod/RSSHub
+  #  id: "GenshinImpact" # Twitter ID
+  #  # If enabled, Hugo will download videos and images from the Tweet and optimize them
+  #  imageProcessing: true
+
+  # Image Zoom Plugin
+  # see https://github.com/francoischalifour/medium-zoom
+  imageZoom: true
+
+  # lazyload image
+  lazyload: true
+
+  # Read English content faster, see https://bionic-reading.com/
+  bionicReading:
+    enabled: false
+
+  # enable google translate in footer
+  googleTranslate: false
+
+  # Optimize Chinese typography, see: https://github.com/vinta/pangu.js
+  pangu: false
+
+  # enable local search plugin
+  search: true
+
+  # For outdated reminders
+  lastmod: true
+
+  # show reading time
+  readingTime: true
+
+  # show word count
+  wordCount: false
+
+  # Show table of contents, You can enable it separately in the page
+  toc:
+    enabled: true
+    # When the article word count is greater than this value, the TOC will be displayed
+    wordCount: 400
+
+  # encryption articles
+  HugoEncrypt:
+    # default password
+    Password: '123456'
+    # "session" or "local"
+    Storage: 'session'
+
+  # Enable pjax with swup.js
+  pjax: true
+
+  # use service worker
+  pwa: true
+
+  # katex
+  katex: false
+
+  # backtop button
+  backtop: true
+
+  # article image aspect ratio
+  featuredImageHeight: '42%' #42% | false
+
+  # Default post card featured image, not displayed on content pages
+  defaultFeaturedImage: false # false | featured.png in assets folder | https://unsplash.it/1920/1080/?random={{timestamp}}
+
+  # Optimize your images and SEO
+  imageProcessing:
+    cover: true
+    content: true
+    autoResize:
+      - 1080
+      - 1440
+    webp: true
+
+  opengraph:
+    #twitter: # see https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/#getting-started
+    #  cardType: summary_large_image # summary | summary_large_image
+    #  site: "@Ice_Hazymoon"
+    image: 'featured.png' # in assets folder | false
+
+build:
+  noJSConfigInAssets: true
