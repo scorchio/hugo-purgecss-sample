@@ -5,9 +5,12 @@ This repository demostrates an issue with how PurgeCSS works with the [Luna them
 ## How to reproduce
 
 - Clone the repository: `git clone https://github.com/scorchio/hugo-purgecss-sample.git`
-- Get the git submodule of the theme:
+- Get the theme as a git submodule:
+  - `git submodule init`
+  - `git submodule update`
 - Get the theme dependencies
   - `cd themes/hugo-theme-luna`
   - `npm install`
+  - `cd ../..`
 - Start the hugo dev server: `hugo serve --disableFastRender`
 - Open the about page: http://localhost:1313/about/
